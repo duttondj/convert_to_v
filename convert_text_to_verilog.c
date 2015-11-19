@@ -12,6 +12,7 @@
 //   If you don't like this program, go write your own.
 //
 //   Created: P. Athanas, Virginia Tech, April 2015.
+//   Updated: Danny Dutton, Virginia Tech, Nov 2015
 //
 /////////////////////////////////////////////////////////////////////////////////////
 

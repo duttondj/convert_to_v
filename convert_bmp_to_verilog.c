@@ -13,6 +13,7 @@
 //   Note: if you don't like this program, write your own.
 //
 //   Modified: P. Athanas, Virginia Tech, April 2015.
+//   Updated: Danny Dutton, Virginia Tech, Nov 2015
 //
 ////////////////////////////////////////////////////////////////////////
 
