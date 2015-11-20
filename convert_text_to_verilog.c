@@ -63,11 +63,15 @@ int main(int argc, char **argv) {
    fprintf(fout, "   always@(posedge clk) begin \n");
    fprintf(fout, "     case (addr) \n");
 
-   // Output hex value of characters, output the EOF as -1 (0xFF)
+   // Output hex value of characters
    while (!feof(fin)) 
    {
       // Get the next character
       c = getc(fin);
+
+      // Dont print the EOF character because its not in character_rom.v
+      if(feof(fin))
+         break;
       
       // Add case for character
       fprintf(fout,"      9'd%03d:  rom = 8'h%02x;\n", idx++, c);
