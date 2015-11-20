@@ -4,16 +4,12 @@ Tools for converting text and bitmaps into Verilog ROM files. There were some co
 ## Download
 Change to the directory where you wish to store the files and then run:
 	
-	git clone https://github.com/duttondj/convert_to_v.git
-or download and unzip:
-
-	https://github.com/duttondj/convert_to_v/archive/master.zip
+	git clone https://github.com/duttondj/convert_to_v.git ; cd convert_to_v
+or download and unzip `https://github.com/duttondj/convert_to_v/archive/master.zip`
 
   
 ## Compile
-Run:
-	
-	make
+Run `make`
 Binaries will be called bmp2v and text2v
 
 ## Usage
