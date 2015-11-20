@@ -5,6 +5,10 @@ Tools for converting text and bitmaps into Verilog ROM files
 Change to the directory where you wish to store the files and then run:
 	
 	git clone https://github.com/duttondj/convert_to_v.git
+or download and unzip:
+
+	https://github.com/duttondj/convert_to_v/archive/master.zip
+
   
 ## Compile
 Run:
