@@ -12,7 +12,7 @@
 //   If you don't like this program, go write your own.
 //
 //   Created: P. Athanas, Virginia Tech, April 2015.
-//   Updated: Danny Dutton, Virginia Tech, Nov 2015
+//   Modified: Danny Dutton, Virginia Tech, Nov 2015
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -23,25 +23,32 @@
 
 #define MAXSIZE 512
 
-main(int argc, char **argv) {
-   char c;
+int main(int argc, char **argv) {
+   unsigned char c;
    FILE *fin, *fout;
    int idx = 0;
 
+   // Not correct number of params
    if (argc != 3) {
       fprintf(stderr, "Usage: %s input_text_file  output_rom_file\n",argv[0]);
       exit(-1);
    }
+   
+   // Open input file and check if good
    fin = fopen(argv[1], "r");
    if (fin == NULL) {
       fprintf(stderr, "Error, cannot open input file %s.  Bye.\n", argv[1]);
       exit(-1);
    }
+   
+   // Open output file and check if good
    fout = fopen(argv[2], "w");
    if (fin == NULL) {
       fprintf(stderr, "Error, cannot open output file %s.  Bye.\n", argv[2]);
       exit(-1);
    }
+   
+   // Begin Verilog file creation
    fprintf(fout, "/////////////////////////////////////////////////////////////////////////////\n");
    fprintf(fout, "//\n");
    fprintf(fout, "// FILENAME: %s\n", argv[2]);
@@ -56,14 +63,24 @@ main(int argc, char **argv) {
    fprintf(fout, "   always@(posedge clk) begin \n");
    fprintf(fout, "     case (addr) \n");
 
-   while (!feof(fin)) {
+   // Output hex value of characters, output the EOF as -1 (0xFF)
+   while (!feof(fin)) 
+   {
+      // Get the next character
       c = getc(fin);
+      
+      // Add case for character
       fprintf(fout,"      9'd%03d:  rom = 8'h%02x;\n", idx++, c);
-      if (idx > MAXSIZE-1) {
-         fprintf(stderr,"Warning: input text file greater than 1024 characters. Truncating.\n");
+      
+      // Check if input textfile is too large
+      if (idx > MAXSIZE-1)
+      {
+         fprintf(stderr,"Warning: input text file greater than %d characters. Truncating.\n", MAXSIZE);
          break;
       }
    }
+   
+   // Finishing ROM module and close files
    fprintf(fout, "      default: rom = 8'h00;\n");
    fprintf(fout, "    endcase \n");
    fprintf(fout, "  end \n");
