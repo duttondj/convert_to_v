@@ -50,7 +50,6 @@ int main(int argc, char *argv[]){
 	int gotindex = 0;
 	unsigned char grey,r,g,b;
 	double ampl;
-	short _2byte[2];
 	HEADER header;
 	INFOHEADER infoheader;
 	COLOURINDEX colourindex[256];
@@ -81,7 +80,7 @@ int main(int argc, char *argv[]){
 		{
 			ampl = grey * 256. - 32768.;
 		}
-		// printf("%.2f\n", ampl);
+		printf("%.2f\n", ampl);
 	}
 	
 	// 24bit images
