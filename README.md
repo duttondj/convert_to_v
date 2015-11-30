@@ -13,5 +13,7 @@ Run `make`
 Binaries will be called bmp2v and text2v
 
 ## Usage
+You must have the files in your present working directory.
+
 	./bmp2v input.bmp output.v
 	./text2v input.txt output.v
