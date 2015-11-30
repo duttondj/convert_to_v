@@ -249,6 +249,7 @@ int main(int argc, char *argv[]){
 			fprintf(fvh, "%02x%02x%02x;\n",r,g,b);
 		} // i
 	} // j
+	fprintf(fvh, "         default:   rom = 24'hffffff;\n");
 	fprintf(fvh, "      endcase\n   end\nendmodule\n");
 	
 	fclose(fvh);
