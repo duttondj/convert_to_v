@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS = -g -Wall
+CFLAGS = -m32 -g -Wall
 
 all:	text2v bmp2v
 
